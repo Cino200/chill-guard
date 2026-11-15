@@ -1,0 +1,65 @@
+CHILL GUARD - APLIKASI PORTABLE (Node.js + SQLite)
+===================================================
+Sistem Cerdas Penyimpanan Makanan pada Kulkas - DJPK
+Rudy Alpacino, Anggita Adelia, Muhammad Wildan Fauzi
+
+
+CARA MENJALANKAN (flashdisk E: atau folder mana pun)
+----------------------------------------------------
+ 1. Ekstrak zip ke flashdisk, misalnya  E:\ChillGuard
+    (atau salin folder ChillGuard ke flashdisk).
+ 2. Klik dua kali  start.bat
+ 3. Jendela hitam menampilkan "CHILL GUARD BERJALAN" dan browser terbuka sendiri.
+    Jika browser tidak terbuka, buka  http://localhost:8080/
+ 4. Masuk:
+      Admin   : admin@chillguard.local  / admin123
+      Pegawai : rudy@chillguard.local   / pegawai123
+ 5. Selesai memakai: tutup jendela hitam (atau Ctrl+C). Setelah itu flashdisk boleh dicabut.
+
+Tidak perlu instalasi, tidak perlu hak Administrator, tidak perlu internet, tidak ada
+program lain yang harus diunduh. Database dibuat otomatis saat pertama kali dijalankan.
+
+Jika Windows menampilkan "Windows protected your PC" (SmartScreen): klik "More info",
+lalu "Run anyway". Jika muncul izin Firewall untuk node.exe: pilih "Allow access".
+
+
+ISI FOLDER
+----------
+ start.bat           menjalankan server (klik dua kali)
+ reset-data.bat      mengembalikan data contoh (hapus folder data\)
+ jalankan-uji.bat    menjalankan 31 kasus uji (black-box + white-box)
+ buka-firewall.bat   (opsional) izinkan HP terhubung; klik kanan > Run as administrator
+ node\               node.exe (Node.js 22, Windows 64-bit) - satu-satunya program yang dibutuhkan
+ app\                kode aplikasi web (server, halaman, database)
+ data\               dibuat otomatis: database chillguard.db dan foto unggahan
+ android\            proyek aplikasi Android (WebView + scan barcode)
+ tests\              skrip uji
+ docs\               panduan langkah demi langkah (01-08) dan Panduan-Lengkap.pdf
+
+
+URUTAN MEMBACA PANDUAN
+----------------------
+ docs\01  Persiapan (apa saja yang dibutuhkan; sangat sedikit)
+ docs\02  Menjalankan dari flashdisk, menyambungkan HP, pemecahan masalah
+ docs\03  Isi aplikasi, database, struktur kode (Tugas 10)
+ docs\04  Aplikasi Android (membuat APK)
+ docs\05  GitHub (Tugas 11)
+ docs\06  Pengujian black-box dan white-box (Tugas 12)
+ docs\07  Manajemen proyek (Tugas 13)
+ docs\08  Hari penilaian: daftar periksa, skrip demo, rencana cadangan
+
+
+YANG SUDAH DIUJI DAN BELUM (jujur)
+----------------------------------
+ SUDAH diuji (Linux, Node.js 22.23.4 - versi yang sama dengan node.exe di paket ini):
+   - 86 pemeriksaan alur aplikasi lewat HTTP nyata, semuanya lulus (login, registrasi, tambah/ubah/
+     hapus makanan, status dan urutan, foto JPG/PNG dan penolakan berkas berbahaya, notifikasi,
+     hapus akun, panel admin, recycle bin, laporan CSV, chat, hak akses, CSRF, sesi 30 menit).
+   - tests\jalankan-uji.js: 31 kasus, 31 PASS, branch coverage 100%.
+   - Tampilan diperiksa di layar desktop dan layar HP (Chromium).
+ BELUM diuji (tidak ada Windows/Android di tempat penyusunan):
+   - Menjalankan node.exe dan start.bat di Windows sungguhan (kode aplikasinya sama, hanya
+     program node.exe versi Windows yang belum dijalankan).
+   - Proyek Android (belum dikompilasi) dan scan barcode dengan kamera.
+ Karena itu: JALANKAN SEKALI DI RUMAH dari flashdisk E: sebelum hari penilaian.
+ Bila start.bat bermasalah, lihat docs\02 bagian "Pemecahan masalah" (ada perintah manual satu baris).

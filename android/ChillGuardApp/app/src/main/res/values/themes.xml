@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.ChillGuard" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/biru</item>
+        <item name="colorPrimaryDark">@color/biru_tua</item>
+        <item name="android:statusBarColor">@color/biru_tua</item>
+        <item name="android:windowBackground">@color/putih</item>
+    </style>
+</resources>

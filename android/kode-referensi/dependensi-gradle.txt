@@ -1,0 +1,26 @@
+DEPENDENSI GRADLE (library scan barcode/QR)
+===========================================
+
+Buka  app > build.gradle(.kts)  (modul app, BUKAN yang di root), cari blok  dependencies { ... }
+lalu tambahkan SATU baris sesuai format file Anda:
+
+  Jika file bernama build.gradle.kts (Kotlin DSL, bawaan Android Studio terbaru):
+
+      implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+
+  Jika file bernama build.gradle (Groovy):
+
+      implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+Lalu klik "Sync Now" (banner kuning di atas editor). Butuh internet saat sync pertama kali.
+
+Pengaturan proyek yang disarankan saat New Project:
+  - Template  : Empty Views Activity
+  - Name      : ChillGuard
+  - Package   : com.chillguard.app
+  - Language  : Java
+  - Min SDK   : API 26 (Android 8.0)  -> sesuai SRS
+  - Build config language : Kotlin DSL atau Groovy (bebas)
+
+Jika sync gagal karena versi library tidak ditemukan, buka halaman
+https://github.com/journeyapps/zxing-android-embedded dan pakai versi terbaru yang tertulis di README-nya.

@@ -1,0 +1,21 @@
+# ===== Program dan data lokal (jangan di-commit) =====
+/node/
+/data/
+/app/node_modules/
+*.log
+
+# ===== Hasil build =====
+*.zip
+*.apk
+/android/ChillGuardApp/.gradle/
+/android/ChillGuardApp/build/
+/android/ChillGuardApp/app/build/
+/android/ChillGuardApp/local.properties
+/android/ChillGuardApp/.idea/
+*.iml
+
+# ===== Editor / sistem =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

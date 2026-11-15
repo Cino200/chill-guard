@@ -1,0 +1,46 @@
+TAMBAHAN PADA AndroidManifest.xml (jangan ganti seluruh file, cukup tambahkan)
+==========================================================================
+
+1) Di dalam <manifest>, SEBELUM <application>, tambahkan:
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+2) Pada tag <application ...> tambahkan satu atribut (server demo memakai HTTP di jaringan lokal):
+
+    android:usesCleartextTraffic="true"
+
+3) Pada tag <activity android:name=".MainActivity" ...> tambahkan atribut agar halaman tidak
+   dimuat ulang saat HP diputar:
+
+    android:configChanges="orientation|screenSize|keyboardHidden"
+
+Contoh hasil akhir (bagian pentingnya saja):
+
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+        <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.ChillGuard"
+            android:usesCleartextTraffic="true">   <!-- <== tambahan -->
+
+            <activity
+                android:name=".MainActivity"
+                android:exported="true"
+                android:configChanges="orientation|screenSize|keyboardHidden">   <!-- <== tambahan -->
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+        </application>
+    </manifest>
+
+Catatan: nama tema (Theme.ChillGuard) dan ikon dibuat otomatis oleh Android Studio.
+Biarkan nilai bawaan Android Studio; hanya tambahkan tiga hal di atas.
