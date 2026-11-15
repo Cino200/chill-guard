@@ -26,6 +26,8 @@ android {
 }
 
 dependencies {
+    // Samakan versi kotlin-stdlib agar tidak bentrok (stdlib 1.8.22 vs jdk7/jdk8 1.6.21)
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.activity:activity:1.8.2")
     implementation("androidx.core:core:1.12.0")
