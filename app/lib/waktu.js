@@ -42,9 +42,12 @@ function tentukanStatus(sisaDetik) {
   return 'aman';                                             // jalur C
 }
 
-/** "Sisa 13 Jam", "Sisa 15 Hari", "Kadaluarsa". */
+/** "Sisa 30 Menit", "Sisa 13 Jam", "Sisa 15 Hari", "Kadaluarsa". */
 function formatSisaWaktu(sisaDetik) {
   if (sisaDetik < 0) return 'Kadaluarsa';
+  // Perbaikan (Tugas 14, corrective): sisa < 1 jam dulu tampil "Sisa 0 Jam"
+  if (sisaDetik < 60) return 'Sisa < 1 Menit';
+  if (sisaDetik < 3600) return 'Sisa ' + Math.floor(sisaDetik / 60) + ' Menit';
   if (sisaDetik < 86400) return 'Sisa ' + Math.floor(sisaDetik / 3600) + ' Jam';
   return 'Sisa ' + Math.floor(sisaDetik / 86400) + ' Hari';
 }

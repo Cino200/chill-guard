@@ -57,6 +57,12 @@ cetakTabel('BLACK-BOX 2: hitungSisaDetik(), formatSisaWaktu(), urutkanPrioritas(
   ['BB-WK-05', 'Sisa 86400 detik (tepat 1 hari)', 'Sisa 1 Hari', W.formatSisaWaktu(86400)],
   ['BB-WK-06', 'Urutan prioritas: sisa [5h, 1h, -2h]', '-7200,3600,432000',
     W.urutkanPrioritas([{ sisa_detik: 5 * HARI }, { sisa_detik: 3600 }, { sisa_detik: -7200 }]).map((x) => x.sisa_detik).join(',')],
+  // Perawatan corrective (Tugas 14): sisa kurang dari 1 jam tidak boleh tampil "Sisa 0 Jam"
+  ['BB-WK-07', 'Sisa 3599 detik (59 mnt 59 dtk)', 'Sisa 59 Menit', W.formatSisaWaktu(3599)],
+  ['BB-WK-08', 'Sisa 1800 detik (30 menit)', 'Sisa 30 Menit', W.formatSisaWaktu(1800)],
+  ['BB-WK-09', 'Sisa 59 detik', 'Sisa < 1 Menit', W.formatSisaWaktu(59)],
+  ['BB-WK-10', 'Sisa tepat 0 detik (batas)', 'Sisa < 1 Menit', W.formatSisaWaktu(0)],
+  ['BB-WK-11', 'Sisa 3600 detik (regresi: tepat 1 jam)', 'Sisa 1 Jam', W.formatSisaWaktu(3600)],
 ]);
 
 // 3. BLACK-BOX: form Tambah Makanan (Equivalence Partitioning)
