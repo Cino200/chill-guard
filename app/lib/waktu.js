@@ -42,14 +42,24 @@ function tentukanStatus(sisaDetik) {
   return 'aman';                                             // jalur C
 }
 
-/** "Sisa 30 Menit", "Sisa 13 Jam", "Sisa 15 Hari", "Kadaluarsa". */
+/** "Sisa 30 Menit", "Sisa 13 Jam", "Sisa 15 Hari", "Kadaluarsa 2 Hari lalu". */
 function formatSisaWaktu(sisaDetik) {
-  if (sisaDetik < 0) return 'Kadaluarsa';
+  if (sisaDetik < 0) return formatLamaKadaluarsa(-sisaDetik);
   // Perbaikan (Tugas 14, corrective): sisa < 1 jam dulu tampil "Sisa 0 Jam"
   if (sisaDetik < 60) return 'Sisa < 1 Menit';
   if (sisaDetik < 3600) return 'Sisa ' + Math.floor(sisaDetik / 60) + ' Menit';
   if (sisaDetik < 86400) return 'Sisa ' + Math.floor(sisaDetik / 3600) + ' Jam';
   return 'Sisa ' + Math.floor(sisaDetik / 86400) + ' Hari';
+}
+
+/**
+ * Peningkatan (Tugas 14, perfective): admin ingin tahu sudah berapa lama makanan kadaluarsa
+ * agar bisa memprioritaskan pembersihan kulkas. Masukan: detik sejak lewat (> 0).
+ */
+function formatLamaKadaluarsa(lewatDetik) {
+  if (lewatDetik < 3600) return 'Kadaluarsa < 1 Jam lalu';
+  if (lewatDetik < 86400) return 'Kadaluarsa ' + Math.floor(lewatDetik / 3600) + ' Jam lalu';
+  return 'Kadaluarsa ' + Math.floor(lewatDetik / 86400) + ' Hari lalu';
 }
 
 /** Urut dari sisa waktu paling sedikit (paling mendesak). Tugas 4: urutkanPrioritas(). */

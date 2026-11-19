@@ -52,7 +52,7 @@ cetakTabel('BLACK-BOX 1: tentukanStatus() - Boundary Value Analysis', dataStatus
 cetakTabel('BLACK-BOX 2: hitungSisaDetik(), formatSisaWaktu(), urutkanPrioritas()', [
   ['BB-WK-01', 'Kadaluarsa = sekarang + 13 jam', 'Sisa 13 Jam', W.formatSisaWaktu(W.hitungSisaDetik('2026-11-16 01:00:00', SEKARANG))],
   ['BB-WK-02', 'Kadaluarsa = sekarang + 15 hari', 'Sisa 15 Hari', W.formatSisaWaktu(W.hitungSisaDetik('2026-11-30 12:00:00', SEKARANG))],
-  ['BB-WK-03', 'Kadaluarsa = kemarin', 'Kadaluarsa', W.formatSisaWaktu(W.hitungSisaDetik('2026-11-14 12:00:00', SEKARANG))],
+  ['BB-WK-03', 'Kadaluarsa = kemarin (diubah: perfective)', 'Kadaluarsa 1 Hari lalu', W.formatSisaWaktu(W.hitungSisaDetik('2026-11-14 12:00:00', SEKARANG))],
   ['BB-WK-04', 'Sisa 86399 detik (23 jam 59 mnt)', 'Sisa 23 Jam', W.formatSisaWaktu(86399)],
   ['BB-WK-05', 'Sisa 86400 detik (tepat 1 hari)', 'Sisa 1 Hari', W.formatSisaWaktu(86400)],
   ['BB-WK-06', 'Urutan prioritas: sisa [5h, 1h, -2h]', '-7200,3600,432000',
@@ -63,6 +63,12 @@ cetakTabel('BLACK-BOX 2: hitungSisaDetik(), formatSisaWaktu(), urutkanPrioritas(
   ['BB-WK-09', 'Sisa 59 detik', 'Sisa < 1 Menit', W.formatSisaWaktu(59)],
   ['BB-WK-10', 'Sisa tepat 0 detik (batas)', 'Sisa < 1 Menit', W.formatSisaWaktu(0)],
   ['BB-WK-11', 'Sisa 3600 detik (regresi: tepat 1 jam)', 'Sisa 1 Jam', W.formatSisaWaktu(3600)],
+  // Perawatan perfective (Tugas 14): tampilkan sudah berapa lama makanan kadaluarsa
+  ['BB-WK-12', 'Lewat 1 detik (batas)', 'Kadaluarsa < 1 Jam lalu', W.formatSisaWaktu(-1)],
+  ['BB-WK-13', 'Lewat 3599 detik', 'Kadaluarsa < 1 Jam lalu', W.formatSisaWaktu(-3599)],
+  ['BB-WK-14', 'Lewat 5 jam', 'Kadaluarsa 5 Jam lalu', W.formatSisaWaktu(-5 * 3600)],
+  ['BB-WK-15', 'Lewat 86399 detik (batas)', 'Kadaluarsa 23 Jam lalu', W.formatSisaWaktu(-86399)],
+  ['BB-WK-16', 'Lewat 3 hari 2 jam', 'Kadaluarsa 3 Hari lalu', W.formatSisaWaktu(-(3 * HARI + 7200))],
 ]);
 
 // 3. BLACK-BOX: form Tambah Makanan (Equivalence Partitioning)
